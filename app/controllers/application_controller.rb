@@ -9,8 +9,15 @@ class ApplicationController < ActionController::Base
 
   def geo_code_the_things
     puts 'starting job'
+    # Delayed::Job
+    # GeocodeTheThingsJob.delay
+    #
+    #SideKiq
+    #GeocodeTheThingsJob.perform_async
+    #
+    # ActiveJob
     GeocodeTheThingsJob.perform_later
-    render 'active_job_example'
+    redirect_to root_url
   end
 
 end

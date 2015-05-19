@@ -1,8 +1,8 @@
 class GeocodeTheThingsJob < ActiveJob::Base
+  include Sidekiq::Worker
   queue_as :default
 
   def perform(*args)
-    sleep(15)
     puts 'ending job'
   end
 end
